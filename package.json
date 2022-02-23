@@ -3,6 +3,7 @@
     "deploy-aws": "serverless deploy --verbose"
   },
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "mysql": "^2.18.1"
   }
 }
