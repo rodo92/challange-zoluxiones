@@ -1,7 +1,7 @@
 {
-    "host": "database-1.cv6hqiojuemu.us-east-1.rds.amazonaws.com",
-    "user": "admin_dp",
-    "password": "bUDg1RWNozS9uDqUSwwc",
-    "database": "main",
+    "host": "challenge-zoluxiones.cv6hqiojuemu.us-east-1.rds.amazonaws.com",
+    "user": "pocho_admin",
+    "password": "0rdHETHsTC1xpmbAv9Z6",
+    "database": "challenge",
     "port": "3306"
 }
