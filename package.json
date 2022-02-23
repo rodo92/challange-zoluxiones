@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "deploy-aws": "serverless deploy --stage dev --verbose"
+    "deploy-aws": "serverless deploy --verbose"
   },
   "dependencies": {
     "axios": "^0.26.0"

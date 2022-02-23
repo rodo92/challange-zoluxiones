@@ -1,27 +1,25 @@
 service: challange-zoluxiones
-frameworkVersion: '3'
 
 provider:
   name: aws
   runtime: nodejs14.x
+  profile: deploy-dp
   region: us-east-1
-  profile: deploy-pocho
-  stage: dev
 
 functions:
   getFilm:
     handler: src/films/handler.listFilm
     events:
       - http:
-        method: get
-        path: /film
-        cors: true
+          method: GET
+          path: /film
+          cors: true
       
       - http:
-        method: get
-        path: /film/{idFilm}
-        cors: true
-        request:
-          parameters:
-            paths:
-              idFilm: false
+          method: GET
+          path: /film/{idFilm}
+          cors: true
+          request:
+            parameters:
+              paths:
+                idFilm: false
