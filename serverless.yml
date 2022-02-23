@@ -6,5 +6,19 @@ provider:
   runtime: nodejs12.x
 
 functions:
-  hello:
-    handler: handler.hello
+  getFilm:
+    handler: src/films/handler.listFilm
+    events:
+      - http:
+        method: get
+        path: /film
+        cors: true
+      
+      - http:
+        method: get
+        path: /film/{idFilm}
+        cors: true
+        request:
+          parameters:
+            paths:
+              idFilm: false
