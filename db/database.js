@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 const { promisify }= require('util');
-const config = require('./config.json');
+const config = require('./params.json');
 
-const pool  = mysql.createPool({
+const cnx  = mysql.createPool({
     host: config.host,
     user: config.user,
     password: config.password,
@@ -10,7 +10,7 @@ const pool  = mysql.createPool({
     port: config.port
 });
 
-pool.getConnection((err, connection) => {
+cnx.getConnection((err, connection) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       console.error('Database connection was closed.');
@@ -28,6 +28,6 @@ pool.getConnection((err, connection) => {
   return;
 });
 
-pool.query = promisify(pool.query);
+cnx.query = promisify(cnx.query);
 
-module.exports = pool;
+module.exports = cnx;

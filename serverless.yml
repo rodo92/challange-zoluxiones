@@ -23,3 +23,11 @@ functions:
             parameters:
               paths:
                 idFilm: false
+
+  getPlanets:
+    handler: src/planets/handler.getAllPlanets
+    events:
+      - http:
+          method: GET
+          path: /planets
+          cors: true
