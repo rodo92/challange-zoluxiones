@@ -31,3 +31,11 @@ functions:
           method: GET
           path: /planets
           cors: true
+  
+  createPlanet:
+    handler: src/planets/handler.createPlanet
+    events:
+      - http:
+          method: POST
+          path: /planets
+          cors: true
