@@ -12,7 +12,7 @@ module.exports.getAllPlanets = exports.handler = async (event, context) => {
     );
     return {
         statusCode: 200,
-        body: JSON.stringify({ responseData })
+        body: JSON.stringify(responseData)
     };
 };
 

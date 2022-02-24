@@ -22,7 +22,7 @@ module.exports.listFilm = async (event) => {
         if (idFilm) {
             data = filmParse(response.data);
         } else {
-            response.data.results = response.data.results.map(pp => (filmParse(pp)));
+            response.data.results = response.data.results.map(item => (filmParse(item)));
             data = response.data;
         }
 
