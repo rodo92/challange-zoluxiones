@@ -1,10 +1,17 @@
 {
   "scripts": {
-    "deploy-aws": "serverless deploy --verbose"
+    "deploy-aws": "serverless deploy --verbose",
+    "test": "jest --verbose"
   },
   "dependencies": {
     "axios": "^0.26.0",
     "mysql": "^2.18.1",
     "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

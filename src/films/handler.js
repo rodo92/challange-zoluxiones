@@ -8,6 +8,11 @@ const getUrl = (idFilm) => {
     return idFilm ? SWAPI_GET_FILM_URL(idFilm) : SWAPI_GET_ALL_FILM_URL;
 }
 
+// for test
+const validateIdFilm = (idFilm) => {
+    return Number.isInteger(idFilm) ? SWAPI_GET_FILM_URL(idFilm) : SWAPI_GET_ALL_FILM_URL;
+}
+
 module.exports.listFilm = async (event) => {
 
     const { idFilm } = event.pathParameters ? event.pathParameters : { idFilm: '' };
@@ -40,4 +45,4 @@ module.exports.listFilm = async (event) => {
     }
 };
 
-module.exports.getUrl = getUrl;
+module.exports = { getUrl, validateIdFilm };
