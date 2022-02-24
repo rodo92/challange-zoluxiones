@@ -1,16 +1,16 @@
 'use strict';
 
 const axios = require('axios');
-const { SWAPI_GET_ALL_FILM_URL, SWAPI_GET_FILM_URL } = require('./apiConfig.js');
+const { ENV_SWAPI_ALL_FILM, ENV_SWAPI_FILM } = require('./apiConfig.js');
 const { filmParse } = require("./model.js");
 
 const getUrl = (idFilm) => {
-    return idFilm ? SWAPI_GET_FILM_URL(idFilm) : SWAPI_GET_ALL_FILM_URL;
+    return idFilm ? ENV_SWAPI_FILM(idFilm) : ENV_SWAPI_ALL_FILM;
 }
 
 // for test
 const validateIdFilm = (idFilm) => {
-    return Number.isInteger(idFilm) ? SWAPI_GET_FILM_URL(idFilm) : SWAPI_GET_ALL_FILM_URL;
+    return Number.isInteger(idFilm) ? ENV_SWAPI_FILM(idFilm) : ENV_SWAPI_ALL_FILM;
 }
 
 module.exports.listFilm = async (event) => {
