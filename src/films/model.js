@@ -17,9 +17,9 @@ const filmFieldsParse = {
 }
 
 const filmParse = (film) => {
-    
+
     return Object.keys(film).reduce((obj, field) => {
-    
+
         const parse_field = filmFieldsParse[field];
         obj[parse_field] = film[field];
         return obj;

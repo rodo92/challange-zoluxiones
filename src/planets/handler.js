@@ -1,9 +1,15 @@
 const cnx = require('../../db/database.js');
-const { getPlanetQ, existsPlanetsQ, insertPlanetQ } = require('../../db/q.js');
+const { getPlanetsQ, existsPlanetsQ, insertPlanetQ } = require('../../db/q.js');
 
 module.exports.getAllPlanets = exports.handler = async (event, context) => {
-    const response = await cnx.query(getPlanetQ);
-    const responseData = response.map(row => (row.residents = JSON.parse(row.residents), row));
+    const response = await cnx.query(getPlanetsQ);
+    const responseData = response.map(
+        row => (
+            row.residents = JSON.parse(row.residents),
+            row.films = JSON.parse(row.films),
+            row
+        )
+    );
     return {
         statusCode: 200,
         body: JSON.stringify({ responseData })
@@ -27,7 +33,7 @@ module.exports.createPlanet = exports.handler = async (event, context) => {
         const newPlanet = { name, diameter, rotation_period, orbital_period, gravity, population, climate, terrain, surface_water, residents: JSON.stringify(residents), films: JSON.stringify(films), url };
         const response = await cnx.query(insertPlanetQ, newPlanet);
         statusCode = 200;
-        message = "Created new planet" + name;
+        message = "Created new planet " + name;
     }
 
     return {
